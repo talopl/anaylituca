@@ -193,6 +193,21 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.scss");
+
+var AnimalsLifeSpan = {
+  cat: 30,
+  dog: 20,
+  fox: 14,
+  goat: 10,
+  lion: 35,
+  mouse: 4
+};
+var graphCtx = document.getElementById("graph").getContext("2d");
+var chart = new Chart(graphCtx, {
+  type: "bar"
+});
+console.log(chart.type);
+console.log("its alive");
 },{"./styles.scss":"styles.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
