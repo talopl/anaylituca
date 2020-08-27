@@ -55,6 +55,20 @@ body {
   color: black;
 }
 
+.graph {
+  position: absolute;
+  width: 700px;
+  max-width: 90%;
+  margin-left: 80px;
+  margin-right: 50%;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 750px) {
+  .graph {
+    width: 350px;
+  }
+}
 @media only screen and (max-width: 560px) {
   .title {
     display: none;
