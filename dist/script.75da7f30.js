@@ -194,6 +194,8 @@ module.hot.accept(reloadCSS);
 
 require("./styles.scss");
 
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
 function getRandomColor() {
   var red = Math.floor(Math.random() * 255);
   var blue = Math.floor(Math.random() * 255);
@@ -207,7 +209,6 @@ var AnimalsLifeSpan = {
   dog: 20,
   fox: 14,
   goat: 10,
-  lion: 35,
   mouse: 4
 };
 
@@ -220,18 +221,15 @@ gsap.from(".icons-nav", {
   x: "-100%"
 });
 var graphCtx = document.getElementById("graph").getContext("2d");
-var chart = new Chart(graphCtx, {
-  type: "bar",
-  data: {
-    labels: Object.keys(AnimalsLifeSpan),
-    datasets: [{
-      label: "Life Spans",
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: backgroundColors,
-      borderWidth: 1,
-      fontColor: "#fff"
-    }]
-  },
+var data = {
+  labels: Object.keys(AnimalsLifeSpan),
+  datasets: [{
+    label: "Life Spans",
+    data: Object.values(AnimalsLifeSpan),
+    backgroundColor: backgroundColors,
+    borderWidth: 1,
+    fontColor: "#fff"
+  }],
   options: {
     scales: {
       yAxes: [{
@@ -241,6 +239,49 @@ var chart = new Chart(graphCtx, {
       }]
     }
   }
+};
+var chart = new Chart(graphCtx, {
+  type: "bar",
+  data: data
+});
+var currentChart = chart;
+var pieChartBtn = document.getElementById("pie-chart-btn");
+pieChartBtn.addEventListener("click", function () {
+  currentChart.destroy();
+  var pieChart = new Chart(graphCtx, {
+    type: "pie",
+    data: data
+  });
+  currentChart = (_readOnlyError("currentChart"), pieChart);
+});
+var lineChartBtn = document.getElementById("line-chart-btn");
+lineChartBtn.addEventListener("click", function () {
+  currentChart.destroy();
+  data.datasets[0].fill = false;
+  var lineChart = new Chart(graphCtx, {
+    type: "line",
+    data: data
+  });
+  currentChart = (_readOnlyError("currentChart"), lineChart);
+});
+var areaChartBtn = document.getElementById("area-chart-btn");
+areaChartBtn.addEventListener("click", function () {
+  data.datasets[0].fill = true;
+  currentChart.destroy();
+  var areaChart = new Chart(graphCtx, {
+    type: "line",
+    data: data
+  });
+  currentChart = (_readOnlyError("currentChart"), areaChart);
+});
+var barChartBtn = document.getElementById("bar-chart-btn");
+barChartBtn.addEventListener("click", function () {
+  currentChart.destroy();
+  var barChart = new Chart(graphCtx, {
+    type: "bar",
+    data: data
+  });
+  currentChart = (_readOnlyError("currentChart"), barChart);
 });
 console.log(chart.type);
 console.log("its alive");
