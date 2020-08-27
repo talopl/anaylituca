@@ -202,6 +202,10 @@ var AnimalsLifeSpan = {
   lion: 35,
   mouse: 4
 };
+gsap.from("icons-nav", {
+  duration: 1,
+  x: "-100%"
+});
 var graphCtx = document.getElementById("graph").getContext("2d");
 var chart = new Chart(graphCtx, {
   type: "bar"
