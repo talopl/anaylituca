@@ -20,6 +20,12 @@ body {
   overflow-x: hidden;
 }
 
+.title {
+  margin-left: 15%;
+  color: #fff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 .icons-nav {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -47,6 +53,12 @@ body {
 }
 .icons-nav .chart-type:hover {
   color: black;
+}
+
+@media only screen and (max-width: 560px) {
+  .title {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=/script.75da7f30.css.map */
