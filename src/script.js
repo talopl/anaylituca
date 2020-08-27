@@ -10,10 +10,10 @@ function getRandomColor() {
 const backgroundColors = [];
 
 const AnimalsLifeSpan = {
-  cat: 30,
   dog: 20,
-  fox: 14,
+  cat: 30,
   goat: 10,
+  fox: 14,
   mouse: 4,
 };
 
