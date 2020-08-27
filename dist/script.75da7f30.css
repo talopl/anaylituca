@@ -1,5 +1,52 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #61305d;
+  position: relative;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.icons-nav {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 70px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: #e77c7c;
+}
+.icons-nav .chart-type {
+  color: #fff;
+  background-color: #b55c6c;
+  border-radius: 100%;
+  padding: 10px;
+  margin: 25%;
+  cursor: pointer;
+  transition: color 200ms;
+  scrollbar-color: #a66c7c;
+}
+.icons-nav .chart-type:hover {
+  color: black;
 }
 
 /*# sourceMappingURL=/script.75da7f30.css.map */
